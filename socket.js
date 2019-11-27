@@ -30,7 +30,7 @@ let serverSocket = net.createServer((socket) => {
 
     //--Handling server received data
     socket.on('data', (data) => {
-        if (data === Buffer.from('camilo\r\n')) {
+        if (Buffer.compare(Buffer.from('camilo\r\n'), data) === 0) {
             console.log(`server: Hola ${data}`);
         } else {
             console.log('No se quien eres');
